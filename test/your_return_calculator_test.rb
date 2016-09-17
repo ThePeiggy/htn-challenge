@@ -12,3 +12,6 @@ def test(filename, expected_result)
 end
 
 test('test-0.csv', 0.059)
+test('test-1.csv', 0.0238)
+test('test-2.csv', 0.00)
+test('test-3.csv', 0.05)
