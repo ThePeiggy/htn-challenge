@@ -9,6 +9,9 @@ class YourReturnCalculator < ReturnCalculator
     # snapshot.date
     # snapshot.cash_flow
     # snapshot.market_value
+    if snapshots.size == 0
+      return 0
+    end
     previous_market_value = snapshots[0].market_value
     snapshots.shift
     twr = 1
@@ -18,7 +21,6 @@ class YourReturnCalculator < ReturnCalculator
         # can't divide by 0, so just set return for the sub-period to 1
         naive = 1
       else
-
         naive = (snapshot.market_value - snaphot.cash_flow) / previous_market_value
       end
       twr = twr * naive
