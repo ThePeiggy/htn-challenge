@@ -10,6 +10,14 @@ class YourReturnCalculator < ReturnCalculator
     # snapshot.cash_flow
     # snapshot.market_value
 
-    BigDecimal.new(0)
+	# accumulate the linked value online
+    total = BigDecimal.new(1)
+    (0..(snapshots.length-2)).each do |n|
+		today = snapshots[n+1].market_value - snapshots[n+1].cash_flow
+		yesterday = snapshots[n].market_value
+		# don't need to subtract 1 because we add one later for the linking
+		total *= today/yesterday
+	end
+	return total - BigDecimal.new(1)
   end
 end
