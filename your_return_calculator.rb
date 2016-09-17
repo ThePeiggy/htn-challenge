@@ -18,6 +18,7 @@ class YourReturnCalculator < ReturnCalculator
 		ret = BigDecimal.new("1")
 		snapshots.each { | snapshot |
 			if not first
+				# if prev is zero?
 				ret *= (BigDecimal.new(snapshot.market_value) - BigDecimal.new(snapshot.cash_flow))/prev
 			end
 			prev = BigDecimal.new(snapshot.market_value)
