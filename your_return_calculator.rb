@@ -9,7 +9,17 @@ class YourReturnCalculator < ReturnCalculator
     # snapshot.date
     # snapshot.cash_flow
     # snapshot.market_value
+    previous = snapshots[0].market_value
+    snapshots.shift
+    twr = 1
 
-    BigDecimal.new(0)
+    for s in snapshots
+      naive = (s.market_value - s.cash_flow) / previous
+      twr = twr * naive
+      previous = s.market_value
+    end
+
+    twr = twr - 1
+    return twr
   end
 end
