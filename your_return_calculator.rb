@@ -10,6 +10,17 @@ class YourReturnCalculator < ReturnCalculator
     # snapshot.cash_flow
     # snapshot.market_value
 
-    BigDecimal.new(0)
+    # please forgive horrible variable naming
+    returnValue = BigDecimal.new(1)
+    currentMarketValue = snapshots.shift.market_value
+
+    snapshots.each do |snapshot|
+        percent = ((snapshot.market_value - snapshot.cash_flow) / currentMarketValue) - 1
+        returnValue = returnValue * (1 + percent)
+        currentMarketValue = snapshot.market_value
+    end
+
+    return returnValue - 1
+
   end
 end
