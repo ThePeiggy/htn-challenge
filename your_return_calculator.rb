@@ -13,8 +13,11 @@ class YourReturnCalculator < ReturnCalculator
       prev_snapshot = snapshots[0].market_value # Set prev_snapshot
 
       for snapshot in snapshots[1..-1] do # Loop starting from second day
-        time_weighted_return *= (snapshot.market_value - snapshot.cash_flow)/prev_snapshot
-        prev_snapshot = snapshot.market_value
+
+        unless prev_snapshot == 0 then # Skip days where the market value is 0
+          time_weighted_return *= (snapshot.market_value - snapshot.cash_flow)/prev_snapshot
+          prev_snapshot = snapshot.market_value
+        end
       end
 
       time_weighted_return - 1 # return the compounded return
