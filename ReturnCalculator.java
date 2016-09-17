@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class ReturnCalculator {
-    public static final String fileName = "test-0.csv";
+    public static final String fileName = "test/test-0.csv";
 
     public static void main(String[] args) throws FileNotFoundException {
         Scanner scanner = new Scanner(new File(fileName));
