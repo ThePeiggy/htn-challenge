@@ -11,6 +11,7 @@ class YourReturnCalculator < ReturnCalculator
       return 0
     end
 
+    #my underscore key is broken i would have used snakecase... hahaha
     iterations.times do |subperiod|
       currMarket = snapshots[subperiod+1].market_value
       currCash = snapshots[subperiod+1].cash_flow
