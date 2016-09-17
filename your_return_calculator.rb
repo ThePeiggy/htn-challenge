@@ -10,6 +10,20 @@ class YourReturnCalculator < ReturnCalculator
     # snapshot.cash_flow
     # snapshot.market_value
 
-    BigDecimal.new(0)
+    # slowly calculate the naive returns between each day
+    i = 0
+    naive_returns = []
+    while i < snapshots.length - 1
+      naive_returns << (((snapshots[i+1].market_value - snapshots[i+1].cash_flow) / snapshots[i].market_value) - 1)
+      i += 1
+    end
+
+    # now iterate over the naive returns to get the result
+    result = 1
+    naive_returns.each do |elem|
+      result *= (1 + elem)
+    end
+
+    return result - 1
   end
 end
