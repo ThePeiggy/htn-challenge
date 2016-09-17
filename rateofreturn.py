@@ -8,7 +8,6 @@ def rate_of_return():
 
     print(your_list)
 
-#we dont want to run it on the last one though!
     total_ror = 1
     for i in range(1, len(your_list)):
         #algorithm: find market value at day n and cash flow from day n
@@ -19,6 +18,8 @@ def rate_of_return():
         today_starting = curr_mkt_value-curr_cash_value
         ror_today = today_starting/float(your_list[i-1][2])
         total_ror = ror_today * total_ror
+
+        #we should handle integer overflows, divison by zero etc. 
     return total_ror
 
 print (rate_of_return())
