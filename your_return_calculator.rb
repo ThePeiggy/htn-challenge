@@ -1,3 +1,5 @@
+# Name: Jashan Shewakramani
+# email: jashan1998s@gmail.com
 require_relative 'return_calculator'
 
 class YourReturnCalculator < ReturnCalculator
