@@ -1,0 +1,25 @@
+{
+  "name": "htn-challenge",
+  "version": "1.0.0",
+  "description": "### Background At Wealthsimple, the simplest model of an investment account is a `snapshot`. A `snapshot` represents an account's market liquidation value and the cash flow going in or out of that account for a given day.It is assumed that all market values are calculated at the end of day, while cash flows occur before the end of day.",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlstonLin/htn-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlstonLin/htn-challenge/issues"
+  },
+  "homepage": "https://github.com/AlstonLin/htn-challenge#readme",
+  "dependencies": {
+    "csv-parse": "^1.1.7"
+  }
+}
