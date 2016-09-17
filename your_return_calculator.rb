@@ -2,6 +2,8 @@ require_relative 'return_calculator'
 
 class YourReturnCalculator < ReturnCalculator
   def calculate!
+    return BigDecimal.new(0) if snapshots.length == 1
+
     naive_returns = []
     snapshots.each_with_index do |snapshot, index|
       unless index == 0
@@ -10,10 +12,10 @@ class YourReturnCalculator < ReturnCalculator
       end
     end
 
-    BigDecimal.new(geometric_link(naive_returns))
+    BigDecimal.new(time_weighted_return(naive_returns))
   end
 
-  def geometric_link(naive_returns)
+  def time_weighted_return(naive_returns)
     cur_return = 1
     naive_returns.each do |naive_return|
       cur_return *= 1 + naive_return
