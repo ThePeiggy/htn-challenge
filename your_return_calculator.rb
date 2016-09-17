@@ -10,7 +10,7 @@ class YourReturnCalculator < ReturnCalculator
     # snapshot.cash_flow
     # snapshot.market_value
     previous_snapshot = nil
-    total_return = 1
+    total_return = BigDecimal.new(1)
     for snapshot in snapshots do
       if previous_snapshot != nil then
         period_return = (snapshot.market_value - snapshot.cash_flow) / previous_snapshot.market_value
