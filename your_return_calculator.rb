@@ -1,3 +1,6 @@
+# Dawon Lee
+# koinichi.kr@gmail.com
+
 require_relative 'return_calculator'
 
 class YourReturnCalculator < ReturnCalculator
@@ -10,6 +13,16 @@ class YourReturnCalculator < ReturnCalculator
     # snapshot.cash_flow
     # snapshot.market_value
 
-    BigDecimal.new(0)
+		first = true
+		prev = 0 
+		ret = BigDecimal.new("1")
+		snapshots.each { | snapshot |
+			if not first
+				ret *= (BigDecimal.new(snapshot.market_value) - BigDecimal.new(snapshot.cash_flow))/prev
+			end
+			prev = BigDecimal.new(snapshot.market_value)
+			first = false
+		}
+		return ret - BigDecimal.new("1.0")
   end
 end
