@@ -10,6 +10,6 @@ class YourReturnCalculator < ReturnCalculator
     # snapshot.cash_flow
     # snapshot.market_value
 
-    BigDecimal.new(0)
+    BigDecimal.new(1)
   end
 end
